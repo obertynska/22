@@ -291,7 +291,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
                 if(calcCount.value &&calcCount.value < 1){
-                  countValue = +calcCount.value ;               
+                  countValue = 0 ;               
                 }else if(calcCount.value &&calcCount.value > 1){
                   countValue += (calcCount.value -1) / 10; 
                }
