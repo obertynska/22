@@ -289,11 +289,16 @@ window.addEventListener('DOMContentLoaded', function () {
                 typeValue = calcType.options[calcType.selectedIndex].value,
                 squareValue = +calcSquare.value;
 
-            if(calcCount.value > 1){
-                countValue += (calcCount.value -1) / 10;
-            }
 
-            if(calcDay.value && calcDay.value <5){
+                if(calcCount.value &&calcCount.value < 1){
+                  countValue = +calcCount.value ;               
+                }else if(calcCount.value &&calcCount.value > 1){
+                  countValue += (calcCount.value -1) / 10; 
+               }
+
+            if(calcDay.value && calcDay.value <1){
+                dayValue = 0;
+            }else if(calcDay.value && calcDay.value <5 && calcDay.value > 1){
                 dayValue *= 2;
             }else if(calcDay.value && calcDay.value < 10){
                 dayValue *= 1.5;
@@ -301,7 +306,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
             if(typeValue && squareValue){
-                total = price * typeValue * squareValue * countValue * dayValue;
+                total = price * typeValue * squareValue * countValue * dayValue;                
             }
 
             totalValue.textContent = total;
